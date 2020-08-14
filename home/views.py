@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-
+from .models import Service,Profile
 # Create your views here.
 
 def index(request):
@@ -14,5 +14,7 @@ def blog(request):
     return render(request,'blog.html')   
 
 def services(request):
-    return render(request,'services.html')       
+    servs = Service.objects.all()
+    profls=Profile.objects.all()
+    return render(request,'services.html',{'servs':servs,'profls':profls})       
 

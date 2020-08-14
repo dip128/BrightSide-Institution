@@ -5,6 +5,133 @@
 {% endblock services %}
 
 {% block body %}
+
+<style>
+  .card{
+border-radius: 4px;
+background: #fff;
+box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+padding: 14px 80px 18px 36px;
+cursor: pointer;
+}
+.card:hover{
+ transform: scale(1.05);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+#profile a:hover{
+-webkit-transition: all 1s ease;
+transition: all 1s ease;
+}
+#profile{
+float:left;
+width:100%;
+background: #fff;  /* fallback for old browsers */
+padding:30px 0;
+}
+#profile h1{float:left; width:100%; color:#232323; margin-bottom:30px; font-size: 14px;}
+#profile h1 span{font-family: 'Libre Baskerville', serif; display:block; font-size:45px; text-transform:none; margin-bottom:20px; margin-top:30px; font-weight:700}
+#profile h1 a{color:#131313; font-weight:bold;}
+
+}
+
+
+.profile-card-3 {
+font-family: 'Open Sans', Arial, sans-serif;
+position: relative;
+float: left;
+overflow: hidden;
+width: 100%;
+text-align: center;
+height:368px;
+border:none;
+}
+.profile-card-3 .background-block {
+float: left;
+width: 100%;
+height: 200px;
+overflow: hidden;
+}
+.profile-card-3 .background-block .background {
+width:100%;
+vertical-align: top;
+opacity: 0.9;
+-webkit-filter: blur(0.5px);
+filter: blur(0.5px);
+-webkit-transform: scale(1.8);
+transform: scale(2.8);
+}
+.profile-card-3 .card-content {
+width: 100%;
+padding: 15px 25px;
+color:#232323;
+float:left;
+background:#efefef;
+height:50%;
+border-radius:0 0 5px 5px;
+position: relative;
+z-index: 9999;
+}
+.profile-card-3 .card-content::before {
+content: '';
+background: #efefef;
+width: 120%;
+height: 100%;
+left: 11px;
+bottom: 51px;
+position: absolute;
+z-index: -1;
+transform: rotate(-13deg);
+}
+.profile-card-3 .profile {
+border-radius: 50%;
+position: absolute;
+bottom: 50%;
+left: 50%;
+max-width: 100px;
+opacity: 1;
+box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+border: 2px solid rgba(255, 255, 255, 1);
+-webkit-transform: translate(-50%, 0%);
+transform: translate(-50%, 0%);
+z-index:99999;
+}
+.profile-card-3 h2 {
+margin: 0 0 5px;
+font-weight: 600;
+font-size:25px;
+}
+.profile-card-3 h2 small {
+display: block;
+font-size: 15px;
+margin-top:10px;
+}
+.profile-card-3 i {
+display: inline-block;
+font-size: 16px;
+color: #232323;
+text-align: center;
+border: 1px solid #232323;
+width: 30px;
+height: 30px;
+line-height: 30px;
+border-radius: 50%;
+margin:0 5px;
+}
+.profile-card-3 .icon-block{
+float:left;
+width:100%;
+margin-top:15px;
+}
+.profile-card-3 .icon-block a{
+text-decoration:none;
+}
+.profile-card-3 i:hover {
+background-color:#232323;
+color:#fff;
+text-decoration:none;
+}
+}
+</style>
 <div class="jumbotron text-white" style="background-image: url(https://cdn.pixabay.com/photo/2014/05/03/00/45/computer-336628_960_720.jpg); background-size: 100%;">
   <h1 class="display-4">Services</h1>
   <p class="lead">BrightSide Instittution gives solution to business.That will help businesses to grow much faster than others</p>
@@ -13,16 +140,51 @@
   </div>
 
   <h1 class="text-center"> Our Services</h1>
-  <div class="row container m-2">
-    <div class="col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
+ 
+  <div class="row container" style="margin-left:100px;">
+     {% for serv in servs %}
+    <div class="col-lg-4 m-3 h-100 mx-auto d-flex">
+    <div class="card h-100 border-primary card-block" style="width: 23rem; height:70rem;!important">
+      <img src="{{serv.img.url}}" class="card-img-top" alt="...">
+        <div class="card-body h-100">
+        {% if serv.special %}
+         <span class="badge badge-success">Combo</span>{% endif %}
+        <h5 class="card-title">{{serv.title}}</h5>
+        
+        <p class="card-text">{{serv.desc}}</p>
      </div>
     </div>
   </div>
+  {% endfor %}
 </div>
+      <a href="#contactus"><button type="button" class="btn btn-outline-info btn-lg " style="margin-left:550px; !important">Contact With Our Developer</button></a>
+  <section id='profile'>
+    <div class="container">
+      <h1 class="text-center m-3"><span>Our Team</span></h1>
+    	<div class="row">
+    	  	<!--Profile Card 3-->
+          {% for profl in profls  %}
+          <div class="col-md-4 m-3">
+    		    <div class="card profile-card-3">
+    		        <div class="background-block">
+    		            <img src="{{profl.backimg.url}}" alt="profile-sample1" class="background"/>
+    		        </div>
+    		        <div class="profile-thumb-block">
+    		            <img src="{{profl.proimg.url}}" alt="profile-image" class="profile"/>
+    		        </div>
+    		        <div class="card-content">
+                    <h2>{{profl.name}}<small>{{profl.desig}}</small></h3>
+                    <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                    </div>
+                </div>
+                
+    		</div>
+          {% endfor %}		
+    	</div>
+    </div>
+</section>
+
+<section id='contactus'>
+
+</section>
 {% endblock body %}
