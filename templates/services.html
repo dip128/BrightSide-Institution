@@ -7,6 +7,7 @@
 {% block body %}
 
 <style>
+
   .card{
 border-radius: 4px;
 background: #fff;
@@ -131,17 +132,29 @@ color:#fff;
 text-decoration:none;
 }
 }
+
+.ct hr{
+	    	background: white;	
+	    }
+
+		.ct {
+			background:rgba(0,0,0,0.6);
+			color:white;
+			margin-top: 100px;
+			padding: 20px;
+			box-shadow: 0px 0px 10px 3px grey;
+		}
 </style>
 <div class="jumbotron text-white" style="background-image: url(https://cdn.pixabay.com/photo/2014/05/03/00/45/computer-336628_960_720.jpg); background-size: 100%;">
-  <h1 class="display-4">Services</h1>
-  <p class="lead">BrightSide Instittution gives solution to business.That will help businesses to grow much faster than others</p>
+  <h1 class="display-4" data-aos="fade-right" data-aos-duration="1500">Services</h1>
+  <p class="lead" data-aos="fade-right" data-aos-duration="1500">BrightSide Instittution gives solution to business.That will help businesses to grow much faster than others</p>
   <hr class="my-4 white">
-  <p>Keep your Business at the Skylevel With Us.</p>
+  <p data-aos="fade-right" data-aos-duration="1500">Keep your Business at the Skylevel With Us.</p>
   </div>
 
-  <h1 class="text-center"> Our Services</h1>
+  <h1 class="text-center"data-aos="zoom-in" data-aos-duration="1500"> Our Services</h1>
  
-  <div class="row container" style="margin-left:100px;">
+  <div class="row container" style="margin-left:100px;" data-aos="zoom-in" data-aos-duration="1600">
      {% for serv in servs %}
     <div class="col-lg-4 m-3 h-100 mx-auto d-flex">
     <div class="card h-100 border-primary card-block" style="width: 23rem; height:70rem;!important">
@@ -157,11 +170,11 @@ text-decoration:none;
   </div>
   {% endfor %}
 </div>
-      <a href="#contactus"><button type="button" class="btn btn-outline-info btn-lg " style="margin-left:550px; !important">Contact With Our Developer</button></a>
+      <a href="/contact"><button type="button" class="btn btn-outline-info btn-lg " style="margin-left:550px; !important" data-aos="zoom-in" data-aos-duration="1500">Contact With Our Developer</button></a>
   <section id='profile'>
     <div class="container">
-      <h1 class="text-center m-3"><span>Our Team</span></h1>
-    	<div class="row">
+      <h1 class="text-center m-3"data-aos="zoom-in" data-aos-duration="1500"><span>Our Team</span></h1>
+    	<div class="row"data-aos="zoom-in" data-aos-duration="1500">
     	  	<!--Profile Card 3-->
           {% for profl in profls  %}
           <div class="col-md-4 m-3">
@@ -184,7 +197,4 @@ text-decoration:none;
     </div>
 </section>
 
-<section id='contactus'>
-
-</section>
 {% endblock body %}

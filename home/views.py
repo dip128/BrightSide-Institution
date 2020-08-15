@@ -18,3 +18,5 @@ def services(request):
     profls=Profile.objects.all()
     return render(request,'services.html',{'servs':servs,'profls':profls})       
 
+def contact(request):
+    return render(request,'contact.html')
