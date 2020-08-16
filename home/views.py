@@ -20,3 +20,11 @@ def services(request):
 
 def contact(request):
     return render(request,'contact.html')
+
+def freecourse(request):
+    return render(request,'freecourse.html')  
+
+def login(request):
+    return render(request,'login.html')      
+def signup(request):
+    return render(request,'signup.html')    

@@ -16,6 +16,12 @@
 
     <title>{% block title %}{% endblock title %} | BrightSide Institution</title>
   </head>
+  <style>
+    html{
+      scroll-behavior:smooth;
+      
+    }
+  </style>
   <body>
 <!-- Navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" style="background-color:rgba(0,0,0,0.5); !important">
@@ -46,6 +52,9 @@
             <a class="nav-link {% block about %}{% endblock about %}" href="/about" >About Us</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link {% block freecourse %}{% endblock freecourse %}" href="/FreeCourses">Free Courses</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link {% block course %}{% endblock course %}" href="/course">Courses</a>
           </li>
           <li class="nav-item">
@@ -59,7 +68,7 @@
         <!-- Right -->
          <ul class="navbar-nav nav-flex-icons">
            <li class="nav-item mr-1">
-               <p><a class="btn btn-outline-info" href="#" role="button"><i class="fa fa-home" aria-hidden="true"></i> Login</a></p>
+               <p><a class="btn btn-outline-info" href="/login" role="button"><i class="fa fa-home" aria-hidden="true"></i> Login</a></p>
             </a>
           </li>
 
@@ -207,8 +216,19 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-       AOS.init();
-    </script>
+    <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    AOS.init();
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5f3751b9b7f44f406e94ffd5/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
   </body>
 </html>
