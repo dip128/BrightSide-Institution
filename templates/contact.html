@@ -64,19 +64,28 @@ textarea.contact-form-text{
 
 </style>
 
+{% if message_name %}
+    <center class='mt-5 pt-5'>
+       <h1> Thanks {{message_name}}!</h1>
+        <p>We recieved your mail and respond shortly</p>
+    </center>
+      <br/><br/><br/>
 
-<div class="contact-section">
 
-  <h1 class='mt-5' data-aos="zoom-in" data-aos-duration="1500">Contact Us</h1>
-  <div class="border"data-aos="zoom-in" data-aos-duration="1500"></div>
-  <form class="contact-form" action="index.html" method="post" data-aos="fade-right" data-aos-duration="1500">
-    <input type="text" class="contact-form-text" placeholder="Your name" required>
-    <input type="email" class="contact-form-text" placeholder="Your email" required>
-    <input type="tel" pattern=".{10}" class="contact-form-text" id="validationCustom08" placeholder="Mobile" oninput="check(this)" required>
-    <textarea class="contact-form-text" placeholder="Your message" required></textarea>
-    <input type="submit" class="contact-form-btn" value="Send" >
-  </form>
-</div>
+{% else %}
+    <div class="contact-section">
 
+       <h1 class='mt-5' data-aos="zoom-in" data-aos-duration="1500">Contact Us</h1>
+       <div class="border"data-aos="zoom-in" data-aos-duration="1500"></div>
+       <form class="contact-form" action="{% url 'contact'%}" method="post" data-aos="fade-right" data-aos-duration="1500">
+         {% csrf_token %}
+        <input type="text" class="contact-form-text" placeholder="Your name" name="message-name"required>
+        <input type="email" class="contact-form-text" placeholder="Your email" name="message-email" required>
+      <input type="tel" pattern=".{10}" class="contact-form-text" id="validationCustom08" placeholder="Mobile" oninput="check(this)" name="message-phone" required>
+        <textarea class="contact-form-text" placeholder="Your message" name="message" required></textarea>
+        <input type="submit" class="contact-form-btn" value="Send" >
+       </form>
+    </div>
+{% endif %}
 
 {% endblock body %}
