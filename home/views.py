@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from .models import Service,Profile,Courses
+from .models import Service,Profile,Courses,Contacts
 from django.core.mail import send_mail
 from django.contrib import messages
 
@@ -24,6 +24,18 @@ def services(request):
 
 def contact(request):
     if request.method=="POST":
+        name = request.POST.get('message-name',' ')
+        email = request.POST.get('message-email',' ')
+        phone = request.POST.get('message-phone',' ')
+        messages = request.POST.get('message',' ')
+        contacts = Contacts(name=name,email=email,phone=phone,messages=name)
+        contacts.save()
+        return render(request,'contact.html',{'message_name':name})
+        messages.success(request, 'Your Mail has been sent.We will contact you as soon as possible.')
+    else:    
+        return render(request,'contact.html')    
+    '''
+    if request.method=="POST":
         message_name = request.POST['message-name']
         message_email = request.POST['message-email']
         message_phone = request.POST['message-phone']
@@ -36,9 +48,8 @@ def contact(request):
         )
         return render(request,'contact.html',{'message_name':message_name})
         messages.success(request, 'Your Mail has been sent.We will contact you as soon as possible.')
-    else:    
-        return render(request,'contact.html')
 
+        '''
 def freecourse(request):
     return render(request,'freecourse.html')  
 

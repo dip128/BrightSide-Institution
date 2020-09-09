@@ -32,3 +32,11 @@ class Courses(models.Model):
     
 
     
+class Contacts(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField(max_length=254)
+    phone = models.BigIntegerField()
+    messages = models.TextField()
+    
+    def __str__(self):
+         return self.name
