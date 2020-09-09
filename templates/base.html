@@ -16,6 +16,8 @@
       <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:400,400i,500,700" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
     <title>{% block title %}{% endblock title %} | BrightSide Institution</title>
   </head>
   <style>
@@ -28,8 +30,16 @@
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	background: url(https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+	background: url(https://i.pinimg.com/originals/90/80/60/9080607321ab98fa3e70dd24b2513a20.gif)  no-repeat center center;
+  background-size:cover;
 }
+footer{
+  background-image: url('https://www.thisiscolossal.com/wp-content/uploads/2018/11/HenriPrestes_02.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
     html{
       scroll-behavior:smooth;
       
@@ -215,7 +225,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3 text-white">© 2020 Copyright:
-    <a href="/">BrightSide Institute.com</a>
+    Made With ❤ by <a href="https://www.linkedin.com/in/diptom-saha-5b6a701b3/">Diptom Saha</a>
   </div>
   <!-- Copyright -->
 
@@ -230,7 +240,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    
+      <script src="https://unpkg.com/kursor"></script>
     <!--Start of Tawk.to Script-->
   <script type="text/javascript">
     AOS.init();
@@ -247,6 +257,10 @@
 		// Animate loader off screen
 		$(".se-pre-con").fadeOut("slow");;
 	});
+  new kursor({
+            type: 1,
+          color: '#e94560'
+        })
 </script>
 <!--End of Tawk.to Script-->
   </body>

@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from .models import Service,Profile
+from .models import Service,Profile,Courses
 from django.core.mail import send_mail
 from django.contrib import messages
 
@@ -9,7 +9,8 @@ def index(request):
     return render(request,'index.html')
 
 def course(request):
-    return render(request,'course.html')    
+    courses=Courses.objects.all()
+    return render(request,'course.html',{'courses':courses})    
 def about(request):
     return render(request,'about.html')  
 

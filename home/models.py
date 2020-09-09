@@ -20,4 +20,15 @@ class Profile(models.Model):
 
     def __str__(self):
          return self.name
+
+class Courses(models.Model):
+    img = models.ImageField(upload_to='pics')
+    title = models.CharField(max_length=150)
+    desc = models.TextField()
+    crash = models.BooleanField()
+    price=models.DecimalField(max_digits=10,decimal_places=2)
+    def __str__(self):
+         return self.title
+    
+
     

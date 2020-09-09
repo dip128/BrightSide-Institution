@@ -5,57 +5,120 @@
 {% endblock course %}
  {% block body %}
     <div class="se-pre-con"></div>
-    <style>
-    section{ display: flex;  }
-
-.leftside { width: 45%; height: auto; overflow: hidden; margin-top: 20px;}
-
-.leftside img{  width: 600px;  height: 500px; }
-
-.rightside{ width: 55%; height: 300px; color: white; text-align: center; margin-top: 80px; padding: 40px;}
-
-.rightside h1{ text-align: center;
-    color: #ffffff;
-    font-size: 50px;
-    font-weight: 900;
-    text-transform: uppercase; } 
-
-.rightside p {  
-    font-size: 1.1rem; padding: 30px 0; }
-
-.rightside button{   font-size: 15px;
-    font-weight: 500;
-    color: white;
-    text-transform: uppercase;
-    background: linear-gradient(57deg, #436f8a , #6f4a8e ); 
-    border-radius: 4px 4px 4px 4px;
-    padding: 20px 35px ; 
+     <style>
+ 
+    .home-banner-area {
+	background: url("./static/home-banner-bg.png") no-repeat;
+	background-size: cover;
+	background-position: center center;
+	max-height: 1200px;
+	.fullscreen {
+		@media (min-width: 1921px) {
+			align-items: start !important;
+			padding-top: 250px;
+			max-height: 1200px !important;
+		}
+		@media (max-width: 768px) {
+			height: 750px !important;
+		}
+	}
+}
+    .home-banner-left {
+	@media (max-width: 768px) {
+		text-align: center;
+	}
+	h1 {
+        font-family: "Playfair Display", serif;
+        margin-top: 0;
+        font-weight: 900;
+		color: $black;
+		font-size: 50px;
+		line-height: 1em;
+		margin-bottom: 30px;
+		span {
+			font-weight: 900;
+		}
+		@media (max-width: 768px) {
+			font-size: 36px;
+		}
+		br {
+			@media (max-width: 767px) {
+				display: none;
+			}
+		}
+		@media (max-width: 991px) {
+			font-size: 45px;
+		}
+		@media (max-width: 414px) {
+			font-size: 40px;
+		}
+	}
+	@media (max-width: 800px) {
+		margin-top: 30px;
+	}
 }
 
-
-
-.rightside button:hover{
-      background: linear-gradient(57deg, #6f4a8e, #436f8a );   
+.home-banner-right {
+	img {
+		margin-right: auto !important;
+		margin-left: auto !important;
+		display: block;
+		@media (max-width: 991px) {
+			display: none;
+		}
+	}
 }
-.site-header {
-    width: 100%;
-    height: 100vh;
-    background: #0f8a9d;
-    background: linear-gradient(57deg, #436f8a , #6f4a8e ); 
-    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+    .banner-area {
+	background: url("./static/banner-bg.png") no-repeat center;
+	background-position: right;
+	min-height: 510px;
+}
+.banner-right {
+	margin-top: 200px;
+	text-align: right;
+	@media (max-width: 1199px) {
+		text-align: center;
+	}
+	// @media (max-width: 991px) {
+	// 	text-align: right;
+	// }
+	// @media (max-width: 767px) {
+	// 	text-align: center;
+	// }
+	h1 {
+		@media (max-width: 767px) {
+			font-size: 30px;
+		}
+	}
+	p {
+		@media (max-width: 767px) {
+			display: none;
+		}
+	}
 
 }
-   
-    </style>
-<section class="site-header clearfix">
-  <div class="leftside"> 
-   <img src="./static/header-img.png" class="mt-5 pt-4">
-  </div>
-  <div class="rightside"> 
-   <h1>Take the first step to learn with us</h1>
-   <p> </p>
-   <button class="btn btn-info btn-large">Explore</button>
-  </div>
-  
-</section>
+
+ </style>
+  <section class="home-banner-area">
+    <div class="container">
+      <div class="row justify-content-center fullscreen align-items-center">
+        <div class="col-lg-5 col-md-6 col-sm-6 home-banner-left">
+          <h1 class="text-white">
+            Take the first step <br />
+            to learn with us
+          </h1>
+          <p class="mx-auto text-white  mt-20 mb-40">
+            In the history of modern astronomy, there is probably no one
+            greater leap forward than the building and launch of the space
+            telescope known as the Hubble.
+          </p>
+        </div>
+        <div class="offset-lg-2 col-lg-5 col-md-6  home-banner-right">
+          <img class="img-fluid" src="./static/header-img.png" alt="Hello" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 {% endblock body %}
