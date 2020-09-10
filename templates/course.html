@@ -6,30 +6,21 @@
  {% block body %}
     <div class="se-pre-con"></div>
      <style>
- 
+	@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital@1&display=swap');
     .home-banner-area {
 	background: url("./static/home-banner-bg.png") no-repeat;
 	background-size: cover;
 	background-position: center center;
-	max-height: 1200px;
+	max-height: 1500px;
 	.fullscreen {
-		@media (min-width: 1921px) {
-			align-items: start !important;
-			padding-top: 250px;
-			max-height: 1200px !important;
-		}
-		@media (max-width: 768px) {
-			height: 750px !important;
-		}
+		
 	}
 }
-    .home-banner-left {
-	@media (max-width: 768px) {
-		text-align: center;
-	}
+   
+	
 	h1 {
-        font-family: "Playfair Display", serif;
-        margin-top: 0;
+        font-family: 'Dancing Script', cursive !important;
+        margin-top: 5px;
         font-weight: 900;
 		color: $black;
 		font-size: 50px;
@@ -38,24 +29,7 @@
 		span {
 			font-weight: 900;
 		}
-		@media (max-width: 768px) {
-			font-size: 36px;
-		}
-		br {
-			@media (max-width: 767px) {
-				display: none;
-			}
-		}
-		@media (max-width: 991px) {
-			font-size: 45px;
-		}
-		@media (max-width: 414px) {
-			font-size: 40px;
-		}
-	}
-	@media (max-width: 800px) {
-		margin-top: 30px;
-	}
+		
 }
 
 .home-banner-right {
@@ -63,9 +37,7 @@
 		margin-right: auto !important;
 		margin-left: auto !important;
 		display: block;
-		@media (max-width: 991px) {
-			display: none;
-		}
+		
 	}
 }
     .banner-area {
@@ -76,49 +48,61 @@
 .banner-right {
 	margin-top: 200px;
 	text-align: right;
-	@media (max-width: 1199px) {
-		text-align: center;
-	}
-	// @media (max-width: 991px) {
-	// 	text-align: right;
-	// }
-	// @media (max-width: 767px) {
-	// 	text-align: center;
-	// }
-	h1 {
-		@media (max-width: 767px) {
-			font-size: 30px;
-		}
-	}
-	p {
-		@media (max-width: 767px) {
-			display: none;
-		}
-	}
+	
 
 }
-
+.card{
+border-radius: 4px;
+background: #fff;
+box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+padding: 14px 80px 18px 36px;
+cursor: pointer;
+background-color:#64958f;
+}
+.card:hover{
+ transform: scale(1.05);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+#profile a:hover{
+-webkit-transition: all 1s ease;
+transition: all 1s ease;
+}
  </style>
   <section class="home-banner-area">
     <div class="container">
       <div class="row justify-content-center fullscreen align-items-center">
         <div class="col-lg-5 col-md-6 col-sm-6 home-banner-left">
           <h1 class="text-white">
-            Take the first step <br />
+            Take the first step 
             to learn with us
           </h1>
-          <p class="mx-auto text-white  mt-20 mb-40">
-            In the history of modern astronomy, there is probably no one
-            greater leap forward than the building and launch of the space
-            telescope known as the Hubble.
-          </p>
         </div>
-        <div class="offset-lg-2 col-lg-5 col-md-6  home-banner-right">
-          <img class="img-fluid" src="./static/header-img.png" alt="Hello" />
+        <div class="col-lg-5 col-md-6 col-sm-6 offset-lg-2  home-banner-right">
+          <img class="img-fluid" src="./static/13.png" alt="Hello" />
         </div>
       </div>
     </div>
   </section>
-
+<h1 class="text-center m-3"data-aos="zoom-in" data-aos-duration="1500"> Our Courses</h1>
+ 
+<div class="row container" style="margin-left:100px;" data-aos="zoom-in" data-aos-duration="1600">
+     {% for course in courses %}
+  <div class="col-lg-4 m-3 h-100 mx-auto d-flex">
+    <div class="card h-100 border-primary card-block" style="width: 23rem; height:70rem;!important">
+      <img src="{{course.img.url}}" class="card-img-top" alt="...">
+        <div class="card-body h-100">
+        {% if serv.special %}
+         <span class="badge badge-success">Crash Course</span>
+		{% endif %}
+        <h5 class="card-title">{{course.title}}</h5>
+        
+        <p class="card-text">{{course.desc}}</p>   
+		<p class="card-text text-danger">Price - Rs {{course.price}}</p> 
+		<button class="btn  btn-primary">Details</button> <button class="btn  btn-primary">Enroll Now</button>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock body %}

@@ -7,14 +7,17 @@
 {% block body %}
  <div class="se-pre-con"></div>
 <style>
-
-  .card{
+.tk{
+  background-color:#64958f !important;
+}
+.card{
 border-radius: 4px;
 background: #fff;
 box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
   transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 padding: 14px 80px 18px 36px;
 cursor: pointer;
+
 }
 .card:hover{
  transform: scale(1.05);
@@ -152,14 +155,14 @@ text-decoration:none;
   <p data-aos="fade-right" data-aos-duration="1500">Keep your Business at the Skylevel With Us.</p>
   <a href="/contact" class="align-items-center"><button type="button" class="btn btn-outline-info btn-lg "  data-aos="zoom-in" data-aos-duration="1500">Contact Us</button></a>
 
-  </div>
+</div>
 
-  <h1 class="text-center m-3"data-aos="zoom-in" data-aos-duration="1500"> Our Services</h1>
+<h1 class="text-center m-3"data-aos="zoom-in" data-aos-duration="1500"> Our Services</h1>
  
-  <div class="row container" style="margin-left:100px;" data-aos="zoom-in" data-aos-duration="1600">
+<div class="row container" style="margin-left:100px;" data-aos="zoom-in" data-aos-duration="1600">
      {% for serv in servs %}
-    <div class="col-lg-4 m-3 h-100 mx-auto d-flex">
-    <div class="card h-100 border-primary card-block" style="width: 23rem; height:70rem;!important">
+  <div class="col-lg-4 m-3 h-100 mx-auto d-flex">
+    <div class="card tk h-100 border-primary card-block" style="width: 23rem; height:70rem;!important">
       <img src="{{serv.img.url}}" class="card-img-top" alt="...">
         <div class="card-body h-100">
         {% if serv.special %}
@@ -167,7 +170,7 @@ text-decoration:none;
         <h5 class="card-title">{{serv.title}}</h5>
         
         <p class="card-text">{{serv.desc}}</p>
-     </div>
+        </div>
     </div>
   </div>
   {% endfor %}

@@ -10,7 +10,8 @@ def index(request):
 
 def course(request):
     courses=Courses.objects.all()
-    return render(request,'course.html',{'courses':courses})    
+    servs = Service.objects.all()
+    return render(request,'course.html',{'servs':servs,'courses':courses})    
 def about(request):
     return render(request,'about.html')  
 
@@ -28,7 +29,7 @@ def contact(request):
         email = request.POST.get('message-email',' ')
         phone = request.POST.get('message-phone',' ')
         messages = request.POST.get('message',' ')
-        contacts = Contacts(name=name,email=email,phone=phone,messages=name)
+        contacts = Contacts(name=name,email=email,phone=phone,messages=messages)
         contacts.save()
         return render(request,'contact.html',{'message_name':name})
         messages.success(request, 'Your Mail has been sent.We will contact you as soon as possible.')
