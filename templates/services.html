@@ -157,11 +157,11 @@ text-decoration:none;
 
 </div>
 
-<h1 class="text-center m-3"data-aos="zoom-in" data-aos-duration="1500"> Our Services</h1>
- 
-<div class="row container" style="margin-left:100px;" data-aos="zoom-in" data-aos-duration="1600">
+
+ <h1 class="text-center m-3"data-aos="zoom-in" data-aos-duration="1500"> Our Services</h1>
+<div class="row container" style="margin-left:40px;" data-aos="zoom-in" data-aos-duration="1600">
      {% for serv in servs %}
-  <div class="col-lg-4 m-3 h-100 mx-auto d-flex">
+  <div class="col-lg-4 col-md-6 col-sm-6 m-3 h-100 mx-auto d-flex">
     <div class="card tk h-100 border-primary card-block" style="width: 23rem; height:70rem;!important">
       <img src="{{serv.img.url}}" class="card-img-top" alt="...">
         <div class="card-body h-100">
@@ -178,13 +178,14 @@ text-decoration:none;
 <center>
   <a href="/contact" class="align-items-center"><button type="button" class="btn btn-outline-info btn-lg "  data-aos="zoom-in" data-aos-duration="1500">Contact With Our Developers</button></a>
 </center>
+<h1 class="text-center m-2"data-aos="zoom-in" data-aos-duration="1500"> Our Team</h1>
   <section id='profile'>
     <div class="container">
-      <h1 class="text-center m-3"data-aos="zoom-in" data-aos-duration="1500"><span>Our Team</span></h1>
+     
     	<div class="row"data-aos="zoom-in" data-aos-duration="1500">
     	  	<!--Profile Card 3-->
           {% for profl in profls  %}
-          <div class="col-md-4 m-3">
+          <div class="col-md-6 mx-auto">
     		    <div class="card profile-card-3">
     		        <div class="background-block">
     		            <img src="{{profl.backimg.url}}" alt="profile-sample1" class="background"/>

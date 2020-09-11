@@ -15,10 +15,8 @@
 	.fullscreen {
 		
 	}
-}
-   
-	
-	h1 {
+}	
+h1 {
         font-family: 'Dancing Script', cursive !important;
         margin-top: 5px;
         font-weight: 900;
@@ -67,7 +65,11 @@ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 -webkit-transition: all 1s ease;
 transition: all 1s ease;
 }
+
+
+
  </style>
+ 
   <section class="home-banner-area">
     <div class="container">
       <div class="row justify-content-center fullscreen align-items-center">
@@ -83,15 +85,16 @@ transition: all 1s ease;
       </div>
     </div>
   </section>
+  
 <h1 class="text-center m-3"data-aos="zoom-in" data-aos-duration="1500"> Our Courses</h1>
  
-<div class="row container" style="margin-left:100px;" data-aos="zoom-in" data-aos-duration="1600">
+<div class="row container" style="margin-left:40px;" data-aos="zoom-in" data-aos-duration="1600">
      {% for course in courses %}
-  <div class="col-lg-4 m-3 h-100 mx-auto d-flex">
+  <div class="col-lg-4 m-2 col-sm-6 col-md-6 h-100 mx-auto d-flex">
     <div class="card h-100 border-primary card-block" style="width: 23rem; height:70rem;!important">
       <img src="{{course.img.url}}" class="card-img-top" alt="...">
         <div class="card-body h-100">
-        {% if serv.special %}
+        {% if course.crash %}
          <span class="badge badge-success">Crash Course</span>
 		{% endif %}
         <h5 class="card-title">{{course.title}}</h5>
@@ -105,4 +108,6 @@ transition: all 1s ease;
   {% endfor %}
 </div>
 
+
+   
 {% endblock body %}

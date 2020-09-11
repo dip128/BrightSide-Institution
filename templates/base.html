@@ -5,7 +5,7 @@
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
       
     <!-- Bootstrap CSS -->
       
@@ -21,6 +21,10 @@
     <title>{% block title %}{% endblock title %} | BrightSide Institution</title>
   </head>
   <style>
+  *{
+    margin:0;
+    padding:0;
+  }
   .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }
 .se-pre-con {
@@ -36,7 +40,7 @@
 footer{
   background-image: url('https://www.thisiscolossal.com/wp-content/uploads/2018/11/HenriPrestes_02.jpg');
    background-repeat: no-repeat;
-   background-size: cover;
+   
    background-position: center;
 }
 
@@ -49,7 +53,7 @@ footer{
   
 <!-- Navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" style="background-color:rgba(0,0,0,0.5); !important">
-    <div class="container">
+    <div class="container-fluid">
 
       <!-- Brand -->
       <a class="navbar-brand" href="/">
@@ -114,7 +118,7 @@ footer{
 
     <!-- Footer -->
         <!-- Footer -->
-<footer class="page-footer font-small stylish-color-dark pt-4 ft" style="background-color:#3E4551 !important;">
+<footer class="container-fluid page-footer font-small stylish-color-dark pt-4 ft" style="background-color:#3E4551 !important;">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">
