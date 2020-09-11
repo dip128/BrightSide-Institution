@@ -92,10 +92,21 @@ footer{
 
         <!-- Right -->
          <ul class="navbar-nav nav-flex-icons">
-           <li class="nav-item mr-1">
+         {% if user.is_authenticated %}
+            <li class="nav-item mr-1">
+             <p class="text-white mx-2 my-1">Hello! {{user.first_name}}</p>
+            </li>
+            <li class="nav-item mr-1">
+            <p><a class="btn btn-outline-info" href="/logout" role="button"><i class="fa fa-home" aria-hidden="true"></i> Logout</a></p>
+            </a>
+          </li>
+          {% else %}
+            <li class="nav-item mr-1">
                <p><a class="btn btn-outline-info" href="/login" role="button"><i class="fa fa-home" aria-hidden="true"></i> Login</a></p>
             </a>
           </li>
+         {% endif %}
+           
 
         </ul>
         <ul class="navbar-nav nav-flex-icons">
@@ -118,6 +129,7 @@ footer{
 
     <!-- Footer -->
         <!-- Footer -->
+
 <footer class="container-fluid page-footer font-small stylish-color-dark pt-4 ft" style="background-color:#3E4551 !important;">
 
   <!-- Footer Links -->
@@ -234,6 +246,7 @@ footer{
   <!-- Copyright -->
 
 </footer>
+
 <!-- Footer -->
 <!-- Footer -->
     <!-- Optional JavaScript -->
