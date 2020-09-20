@@ -3,7 +3,7 @@ from .models import Service,Profile,Courses,Contacts
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -16,6 +16,7 @@ def course(request):
 def about(request):
     return render(request,'about.html')  
 
+@login_required(login_url="/login")
 def blog(request):
     return render(request,'blog.html')   
 
@@ -52,6 +53,8 @@ def contact(request):
         messages.success(request, 'Your Mail has been sent.We will contact you as soon as possible.')
 
         '''
+
+@login_required(login_url="/login")        
 def freecourse(request):
     return render(request,'freecourse.html')  
 
@@ -59,6 +62,7 @@ def login(request):
     if request.method=="POST":
         username=request.POST['email']
         password=request.POST['password']
+
         user=auth.authenticate(username=username,password=password)
 
         if user is not None:
